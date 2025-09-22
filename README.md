@@ -1,33 +1,54 @@
-# Shopping Assistance for Visually-Impaired
+# Talking to a Machine: Image Question Answering
 
-A simple but powerful tool to help visually-impaired users shop more independently.  
-Using a smartphone camera, the app scans a product barcode, looks up product details,  
-and speaks the information aloud.
+**Talking to a Machine** is a project that enables machines to understand both images and natural language questions about them. The system takes an image and a related question, then generates an answer by combining computer vision and natural language processing techniques.
 
 ---
 
-## ✨ Features
-- **Barcode Scanning** – Detects and decodes product barcodes using Python libraries.
-- **Product Database Lookup** – Fetches product details from a local/remote database.
-- **Text-to-Speech** – Reads product name and details for hands-free use.
-- **Accessible UI** – Minimal interaction needed; designed for visually-impaired users.
+## Project Overview
+
+It started with a question: *how can machines understand both what they see and what we ask about it?*  
+
+This project builds a system that:
+
+1. Extracts visual features from an image.
+2. Encodes a natural language question.
+3. Generates a context-aware answer.
+
+By combining **CNNs for vision** and **LSTMs for language**, the model connects pixels with words, bridging the gap between images and text.
 
 ---
 
-## 🛠️ Tech Stack
-- **Language:** Python  
-- **Libraries:** OpenCV / Pillow (image capture & processing), `pyzbar` or `zxing` (barcode decoding),  
-  SQLite or other database for product info, `pyttsx3` or `gTTS` for text-to-speech.
+## CNN + LSTM Architecture
+
+### Purpose & Approach
+- **Vision**: Image features are extracted using **VGG16**, a pre-trained Convolutional Neural Network (CNN).  
+- **Language**: Questions are encoded using **embeddings** and **LSTMs** (Long Short-Term Memory networks).  
+- **Answer Generation**: The combined features predict answers one word at a time, learning context through sequence modeling.
 
 ---
 
-## 🚀 Getting Started
-### Prerequisites
-- Python 3.8+
-- Camera-equipped computer or smartphone
+## Key Features
 
-### Installation
+- Image feature extraction with **VGG16 CNN**  
+- Language encoding with embeddings and **LSTMs**  
+- Sequence-based word prediction for generating answers  
+- End-to-end pipeline: **image + question → answer**
+
+---
+
+## Why LSTMs?
+
+Dense networks fail to capture meaning because words depend on their neighbors. **LSTMs** solve this by:
+
+- Maintaining memory cells to store long-term dependencies  
+- Using gates to control the flow of information  
+- Producing more contextually meaningful answers
+
+---
+
+## Installation
+
+1. Clone the repository:
+
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
-pip install -r requirements.txt
+git clone https://github.com/tejashwiniGundlapally29/Talking-to-Machine.git
